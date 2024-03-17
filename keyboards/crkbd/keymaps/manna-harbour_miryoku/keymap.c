@@ -30,7 +30,10 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 
 void oled_render_layer_state(void) {
+    char str[10];
+    sprintf(str, " %d ", layer_state);
     oled_write_P(PSTR("Layer: "), false);
+    oled_write_P(str, false);
     switch (layer_state) {
         case 0:
             oled_write_ln_P(PSTR("Base"), false);
