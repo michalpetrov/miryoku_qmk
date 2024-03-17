@@ -57,10 +57,10 @@ void oled_render_layer_state(void) {
         case 7:
             oled_write_ln_P(PSTR("Num"), false);
             break;
-        case 7:
+        case 8:
             oled_write_ln_P(PSTR("Sym"), false);
             break;
-        case 7:
+        case 9:
             oled_write_ln_P(PSTR("Fun"), false);
             break;
     }
