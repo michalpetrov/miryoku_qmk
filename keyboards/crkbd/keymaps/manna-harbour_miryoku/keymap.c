@@ -28,28 +28,40 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-#define L_BASE 0
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
+    oled_write_ln_P(PSTR(layer_state), false);
     switch (layer_state) {
-        case L_BASE:
-            oled_write_ln_P(PSTR("Default"), false);
+        case 0:
+            oled_write_ln_P(PSTR("Base"), false);
             break;
-        case L_LOWER:
-            oled_write_ln_P(PSTR("Lower"), false);
+        case 1:
+            oled_write_ln_P(PSTR("Extra"), false);
             break;
-        case L_RAISE:
-            oled_write_ln_P(PSTR("Raise"), false);
+        case 2:
+            oled_write_ln_P(PSTR("Tap"), false);
             break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Adjust"), false);
+        case 3:
+            oled_write_ln_P(PSTR("Button"), false);
+            break;
+        case 4:
+            oled_write_ln_P(PSTR("Nav"), false);
+            break;
+        case 5:
+            oled_write_ln_P(PSTR("Mouse"), false);
+            break;
+        case 6:
+            oled_write_ln_P(PSTR("Media"), false);
+            break;
+        case 7:
+            oled_write_ln_P(PSTR("Num"), false);
+            break;
+        case 7:
+            oled_write_ln_P(PSTR("Sym"), false);
+            break;
+        case 7:
+            oled_write_ln_P(PSTR("Fun"), false);
             break;
     }
 }
